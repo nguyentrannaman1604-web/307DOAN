@@ -1,0 +1,4956 @@
+$white: #fff;
+$light: #DDDDDD;
+$lightgray: #f2f2f2;
+$grey: #777777;
+$dark: #333333;
+$black: #141414;
+$brown: #cf9167;
+$lightbrown: #fff7f2;
+$yellow: #ffc107;
+$pink: #eb3e75;
+$green: #199588;
+$bluedark: #2d3948;
+$light2: #fafafa;
+
+@font-face {
+    font-family: roboto;
+    src: url("../Fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: robotomd;
+    src: url("../Fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: robotobold;
+    src: url("../Fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: cormorant;
+    src: url("../Fonts/CormorantGaramond-Regular.ttf");
+}
+
+@font-face {
+    font-family: cormorantmd;
+    src: url("../Fonts/CormorantGaramond-Medium.ttf");
+}
+
+@font-face {
+    font-family: cormorantbold;
+    src: url("../Fonts/CormorantGaramond-Bold.ttf");
+}
+
+body,
+input,
+textarea,
+button {
+    font-family: roboto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.reset-link {
+    text-decoration: none;
+    color: $dark;
+}
+
+.reset-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@media screen and (min-width:1700px) {
+    .container {
+        max-width: 1700px;
+    }
+}
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint==xl {
+        @media screen and (max-width: 1399px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==lg {
+        @media screen and (max-width: 1199px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==md {
+        @media screen and (max-width: 991px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==sm {
+        @media screen and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==xs {
+        @media screen and (max-width: 575px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==xxs {
+        @media screen and (max-width: 435px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==xxxs {
+        @media screen and (max-width: 395px) {
+            @content;
+        }
+    }
+}
+
+
+// THANH MENU HEADER
+#header {
+    .menu {
+        #bt-main-nav-close {
+            display: none;
+            border: none;
+            background: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 25px
+        }
+
+        ul {
+            @extend .reset-list;
+            display: flex;
+            padding-top: 25px;
+
+            li {
+                a {
+                    @extend .reset-link;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: $dark;
+                    line-height: 40px;
+                    padding-right: 15px;
+                    display: block;
+
+                }
+
+                a:hover {
+                    color: $brown;
+                }
+            }
+
+            .bt-sanpham {
+                display: flex;
+                height: 100%;
+
+                button {
+                    border: none;
+                    background: none;
+                    color: $dark;
+                    font-weight: bold;
+                    padding-top: 8px;
+                    padding-right: 10px;
+                    margin-left: -18px;
+                    outline: none;
+                }
+
+                button:hover {
+                    color: $brown;
+
+                }
+
+                .show {
+                    border: none;
+                    background: none;
+                }
+
+                .dropdown-menu {
+                    border: none;
+                    width: 100vw;
+
+                    .sub-sanpham {
+                        margin-top: 28px;
+                        z-index: 3;
+                        justify-items: center;
+
+                        .sub-left {
+                            background-color: $light2;
+                            height: 450px;
+                            text-align: left;
+
+                            ul {
+                                @extend .reset-list;
+                                padding-top: 50px;
+                                flex-direction: column;
+                                padding-left: 10px;
+
+                                li {
+                                    a {
+                                        h3 {
+                                            font-family: cormrantmd;
+                                            color: $dark;
+                                            text-transform: uppercase;
+                                            font-size: 20px;
+                                        }
+
+                                        h3:hover {
+                                            color: $brown;
+                                        }
+
+                                        @extend .reset-link;
+                                        color: $grey;
+                                        font-size: 16px;
+                                        line-height: 35px;
+                                        font-weight: normal;
+
+                                    }
+
+                                    a:hover {
+                                        color: $brown;
+                                    }
+                                }
+                            }
+                        }
+
+                        .sub-right {
+                            background-color: $lightbrown;
+                            height: 450px;
+
+
+                            h3 {
+                                font-family: cormrantmd;
+                                color: $dark;
+                                text-align: center;
+                                text-transform: uppercase;
+
+                            }
+
+                            .sub-right-img {
+                                background-color: $white;
+                                padding: 20px;
+                                margin-top: 30px;
+
+                                img {
+                                    width: 100%;
+                                }
+
+                                a {
+                                    @extend .reset-link;
+                                    color: $grey;
+                                    font-size: 16px;
+                                    padding-left: 0px;
+                                    font-weight: normal;
+                                }
+
+                                a:hover {
+                                    color: $brown;
+                                }
+
+                                p {
+                                    color: $brown;
+                                    padding-top: 20px;
+                                    font-size: 16px;
+                                    padding-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .logo {
+        display: flex;
+        text-align: center;
+
+        #bt-nav-menu {
+            font-size: 30px;
+            line-height: 40px;
+            color: $dark;
+            padding-top: 40px;
+            padding-right: 20px;
+            display: none;
+            border: none;
+            background: none;
+        }
+
+        a {
+            img {
+                line-height: 40px;
+                width: 80%;
+                padding-top: 10px;
+            }
+
+        }
+    }
+
+    .nav-icon {
+        ul {
+            @extend .reset-list;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 25px;
+
+            li {
+                position: relative;
+
+                a {
+                    @extend .reset-link;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: $dark;
+                    line-height: 40px;
+                    padding-left: 10px;
+                    display: block;
+
+                    span {
+                        padding-left: 5px;
+                    }
+                }
+
+                a:hover {
+                    color: $brown;
+                }
+
+                button {
+                    font-weight: bold;
+                    line-height: 40px;
+                    padding-left: 10px;
+                    background: none;
+                    border: none;
+                    color: $dark;
+
+                    i {
+                        padding-top: 3px;
+                        font-size: 16px;
+                    }
+
+                    span {
+                        padding-left: 5px;
+                    }
+                }
+
+                button:hover {
+                    color: $brown;
+                }
+
+                .cart-item {
+                    width: 16px;
+                    height: 16px;
+                    background-color: $green;
+                    border-radius: 8px;
+                    position: absolute;
+                    top: 2px;
+                    right: 68px;
+
+                    p {
+                        font-size: 12px;
+                        color: $white;
+                        text-align: center;
+                        height: 16px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    @include respond(xl) {
+        .menu {
+            ul {
+                .bt-sanpham {
+                    .dropdown-menu {
+                        width: 100vw;
+
+                        .sub-sanpham {
+                            margin-top: 20px;
+                            z-index: 3;
+                            justify-items: center;
+
+                            .sub-left {
+                                height: 400px;
+                                padding-left: 60px;
+                            }
+
+                            .sub-right {
+                                height: 550px;
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    @include respond(lg) {
+        .menu {
+            ul {
+                .bt-sanpham {
+                    .dropdown-menu {
+                        width: 100vw;
+
+                        .sub-sanpham {
+                            margin-top: 20px;
+                            z-index: 3;
+                            justify-items: center;
+
+                            .sub-left {
+                                height: 400px;
+                                padding-left: 60px;
+                            }
+
+                            .sub-right {
+                                height: 500px;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-icon {
+            ul {
+                li {
+
+                    a {
+
+                        font-size: 26px;
+                        padding-left: 15px;
+                    }
+
+                    button {
+                        i {
+                            padding-top: 7px;
+                            font-size: 26px;
+                            padding-left: 5px;
+                        }
+                    }
+
+                    .cart-item {
+                        width: 26px;
+                        height: 26px;
+                        background-color: $green;
+                        border-radius: 13px;
+                        position: absolute;
+                        top: -5px;
+                        right: -8px;
+
+                        p {
+                            font-size: 16px;
+                            color: $white;
+                            text-align: center;
+                            height: 26px;
+                        }
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            a {
+                img {
+                    width: 80%;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+
+    @include respond(md) {
+        .menu {
+            background-color: $lightgray;
+            width: 90%;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: 100vh;
+            display: none;
+            z-index: 3;
+
+            #bt-main-nav-close {
+                display: block;
+                color: $grey;
+            }
+
+            ul {
+                flex-direction: column;
+
+                li {
+                    border-bottom: 1px solid $grey;
+
+                    a {
+                        line-height: 50px;
+                    }
+                }
+
+                .bt-sanpham {
+
+                    a {
+                        line-height: 50px;
+                        width: 100%;
+                    }
+
+                    button {
+                        border: none;
+                        background: none;
+                        color: $dark;
+                        font-weight: bold;
+                        justify-content: right;
+                    }
+
+                    .dropdown-menu {
+                        width: 100vw;
+
+                        .sub-sanpham {
+                            z-index: 3;
+                            position: fixed;
+                            overflow: scroll;
+                            width: 90%;
+
+                            .sub-left {
+                                padding-left: 5px;
+                                padding-top: 5px;
+
+                                ul {
+
+                                    li {
+                                        border: none;
+
+                                        a {
+                                            h3 {
+                                                font-size: 16px;
+                                            }
+
+                                            font-size: 10px;
+                                        }
+
+                                    }
+
+                                }
+                            }
+
+                            .sub-right {
+                                height: 400px;
+
+                                .sub-right-img {
+                                    a {
+                                        font-size: 16px;
+
+                                    }
+
+                                    p {
+                                        font-size: 13px;
+                                        padding-top: 0px;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .logo {
+            #bt-nav-menu {
+                display: block;
+
+            }
+
+            a {
+                img {
+                    padding-top: 15px;
+                }
+            }
+        }
+
+        .nav-icon {
+            ul {
+                padding-top: 35px;
+
+                li {
+                    a {
+                        padding-left: 10px;
+                        font-size: 30px;
+                    }
+
+                    button {
+                        i {
+                            padding-top: 5px;
+                            font-size: 30px;
+                        }
+                    }
+
+                    .cart-item {
+                        width: 26px;
+                        height: 26px;
+                        background-color: $green;
+                        border-radius: 13px;
+                        position: absolute;
+                        top: -5px;
+                        right: -5px;
+
+                        p {
+                            font-size: 16px;
+                            color: $white;
+                            text-align: center;
+                            height: 26px;
+                        }
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @include respond(sm) {
+        .menu {
+            display: none !important;
+
+            ul {
+                .bt-sanpham {
+                    .dropdown-menu {
+                        width: 100vw;
+
+                        .sub-sanpham {
+
+                            .sub-left {
+                                height: fit-content;
+                                text-align: left;
+
+                            }
+
+                            .sub-right {
+                                height: fit-content;
+
+                                .sub-right-img {
+                                    img {
+                                        width: 25%;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .logo {
+            #bt-nav-menu {
+                display: block;
+                padding-top: 25px;
+
+            }
+
+            a {
+                img {
+                    width: 100%;
+                    padding-top: 30px;
+                }
+            }
+        }
+
+        .nav-icon {
+
+            ul {
+                padding-top: 40px;
+
+                li {
+                    a {
+                        font-size: 25px;
+                        margin-bottom: 25px;
+                    }
+
+                    button {
+                        i {
+                            padding-top: 3px;
+                            font-size: 25px;
+                        }
+                    }
+
+                    .cart-item {
+                        width: 20px;
+                        height: 20px;
+                        background-color: $green;
+                        border-radius: 10px;
+                        position: absolute;
+                        top: 3px;
+                        right: -2px;
+
+                        p {
+                            font-size: 13px;
+                            color: $white;
+                            text-align: center;
+                            height: 20px;
+                        }
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @include respond(xs) {
+        .logo {
+            a {
+                img {
+                    width: 100%;
+                    margin-top: 5px;
+                }
+            }
+
+            #bt-nav-menu {
+                padding-top: 20px;
+            }
+        }
+
+        .nav-icon {
+            ul {
+                li {
+                    a {
+                        font-size: 25px;
+                        margin-bottom: 25px;
+                    }
+
+                    button {
+                        i {
+                            padding-top: 7px;
+                            font-size: 25px;
+                        }
+                    }
+
+                    .cart-item {
+                        right: 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond(xxs) {
+        .logo {
+            a {
+                img {
+                    width: 120%;
+                    margin-top: 5px;
+                }
+            }
+
+            #bt-nav-menu {
+                padding-top: 20px;
+            }
+        }
+    }
+
+    @include respond(xxxs) {
+        .logo {
+            a {
+                img {
+                    width: 130%;
+                    margin-top: 8px;
+                }
+            }
+
+            #bt-nav-menu {
+                padding-top: 20px;
+            }
+        }
+    }
+}
+
+//  FORM SEARCH
+.search {
+    .modal {
+        .modal-dialog {
+            left: 0px;
+            margin-top: 0px;
+            position: fixed;
+            margin-left: 0px;
+
+            .modal-content {
+                width: 100lvw;
+                left: 0px;
+                height: 200px;
+                top: 60px;
+                position: fixed;
+                margin-left: 0px;
+
+                .modal-header {
+                    border: none;
+                }
+
+                .modal-body {
+
+                    .form-search {
+                        background-color: $light;
+                        height: 50px;
+                        border: 1px solid $grey;
+                        border-radius: 25px;
+
+                        input {
+                            background: none;
+                            border: none;
+                            height: 50px;
+                            width: 100%;
+                            outline: none;
+                        }
+
+                        button {
+                            border: none;
+                            background: none;
+                            height: 50px;
+                            width: 100%;
+
+                            i {
+                                font-size: 20px;
+                                color: $grey;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+}
+
+// THANH NAV TOP 
+
+.navtop {
+    background-color: $bluedark;
+
+    .top-left {
+        font-size: 16px;
+        color: $lightgray;
+        line-height: 60px;
+        justify-content: flex-start
+    }
+
+    .top-right {
+        ul {
+            @extend .reset-list;
+            display: flex;
+            justify-content: flex-end;
+
+            li {
+                &:nth-child(1) {
+                    a {
+                        padding-right: 16px
+                    }
+
+                }
+            }
+
+            li {
+
+                a {
+                    @extend .reset-link;
+                    color: $lightgray;
+                    font-size: 16px;
+                    line-height: 60px;
+
+                }
+
+            }
+        }
+
+    }
+
+    @include respond(md) {
+        // .top-left {
+        //     text-overflow: ellipsis;
+        //     white-space: nowrap;
+        //     overflow: hidden;
+
+
+        // }
+
+        .top-right {
+            justify-content: flex-end;
+
+            ul {
+                li {
+                    &:nth-child(1) {
+                        a {
+                            padding-right: 0px
+                        }
+
+                    }
+                }
+
+                li {
+                    &:nth-child(2) {
+                        a {
+                            display: none;
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    @include respond(sm) {
+        .top-left {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 13px;
+        }
+
+        .top-right {
+            justify-content: flex-end;
+
+            ul {
+                li {
+                    &:nth-child(1) {
+                        a {
+                            padding-right: 0px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                li {
+                    &:nth-child(2) {
+                        a {
+                            display: none;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond(xs) {
+
+        .top-right {
+            justify-content: flex-end;
+
+            ul {
+                li {
+                    &:nth-child(1) {
+                        a {
+                            padding-right: 0px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                li {
+                    &:nth-child(2) {
+                        a {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+// BANNER CHINH
+
+.bannerchinh {
+    margin-top: 20px;
+
+    .carousel-inner {
+        .carousel-caption {
+            width: 70%;
+            height: 50%;
+
+            h3 {
+                padding-bottom: 40px;
+            }
+
+            p {
+                font-size: 80px;
+                font-family: cormorantmd;
+                line-height: 90px;
+                padding-bottom: 40px;
+            }
+
+            .bt1,
+            .bt2,
+            .bt3 {
+                height: 40px;
+                background-color: $brown;
+                border-radius: 20px;
+                border: none;
+                padding: 5px 10px;
+
+                a {
+                    @extend .reset-link;
+                    color: $white;
+
+                }
+            }
+
+        }
+    }
+
+    @include respond(xl) {
+        .carousel-inner {
+            .carousel-caption {
+                h3 {
+                    font-size: 20px;
+                    padding-bottom: 20px;
+                }
+
+                p {
+                    font-size: 50px;
+                    font-family: cormorantmd;
+                    line-height: 56px;
+                    padding-bottom: 10px;
+                }
+
+                .bt1,
+                .bt2,
+                .bt3 {
+                    height: 40px;
+                    background-color: $brown;
+                    border-radius: 20px;
+                    border: none;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+
+    @include respond(lg) {
+        .carousel-inner {
+            .carousel-caption {
+
+                h3 {
+                    font-size: 20px;
+
+                }
+
+                p {
+                    font-size: 40px;
+                    font-family: cormorantmd;
+                    line-height: 46px;
+                    padding-bottom: 10px;
+                }
+
+                .bt1,
+                .bt2,
+                .bt3 {
+                    height: 40px;
+                    background-color: $brown;
+                    border-radius: 20px;
+                    border: none;
+                    padding: 5px 10px;
+
+                }
+            }
+        }
+    }
+
+    @include respond(md) {
+        .carousel-inner {
+            .carousel-caption {
+                h3 {
+
+                    font-size: 16px;
+                }
+
+                p {
+                    font-size: 30px;
+                    font-family: cormorantmd;
+                    line-height: 40px;
+                    padding-bottom: 5px;
+                }
+
+                .bt1,
+                .bt2,
+                .bt3 {
+                    height: 30px;
+                    background-color: $brown;
+                    border-radius: 15px;
+                    border: none;
+                    padding: 5px 10px;
+                    font-size: 13px;
+
+                }
+
+            }
+        }
+
+    }
+
+    @include respond(sm) {
+        .carousel-inner {
+            .carousel-caption {
+
+                h3 {
+                    font-size: 13px;
+                    padding-bottom: 5px;
+
+                }
+
+                p {
+                    font-size: 20px;
+                    font-family: cormorantmd;
+                    line-height: 26px;
+                    padding-bottom: 0px;
+                }
+
+                .bt1,
+                .bt2,
+                .bt3 {
+                    height: 20px;
+                    background-color: $brown;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 0px 5px;
+                    font-size: 8px;
+                    margin-bottom: -50px;
+
+                }
+            }
+        }
+
+    }
+
+    @include respond(xs) {
+        .carousel-inner {
+            .carousel-caption {
+
+
+                h3 {
+                    font-size: 13px;
+                    padding-bottom: 5px;
+
+                }
+
+                p {
+                    font-size: 20px;
+                    font-family: cormorantmd;
+                    line-height: 26px;
+                    padding-bottom: 0px;
+                }
+
+                .bt1,
+                .bt2,
+                .bt3 {
+                    height: 20px;
+                    background-color: $brown;
+                    border-radius: 10px;
+                    border: none;
+                    padding: 0px 5px;
+                    font-size: 8px;
+
+
+                }
+
+            }
+        }
+    }
+}
+
+// BANNER 2
+.banner2 {
+    a {
+        h4 {
+            font-family: cormorantmd;
+            color: $white;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-family: roboto;
+            color: $white;
+        }
+
+        .lopphu-b2 {
+            position: absolute;
+            background-color: $brown;
+            height: 0px;
+            opacity: 0.2;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transition: all 0.5s linear;
+            background-image: linear-gradient(to top, $brown, $lightbrown);
+        }
+    }
+
+    a:hover {
+        .lopphu-b2 {
+            transition: all 0.5s linear;
+            height: 500px;
+
+        }
+    }
+}
+
+.tieude-main {
+    h1 {
+        font-family: cormorantmd;
+        text-align: center;
+        text-transform: uppercase;
+        color: $dark;
+    }
+}
+
+// THANH CARD SAN PHAM
+.cardsanpham {
+    margin-top: 20px;
+
+    .image {
+        position: relative;
+
+        .img1 {
+            opacity: 0;
+            // lay chuot ra tra ve img1 
+            transition: all 0.3s linear;
+        }
+
+        .img2 {
+            position: absolute;
+            opacity: 1;
+            top: 0;
+            left: 0;
+            transition: all 0.3s linear;
+        }
+
+        .sale {
+            width: 40px;
+            height: 40px;
+            background-color: $brown;
+            border-radius: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+
+            p {
+                font-size: 16px;
+                color: $white;
+                text-align: center;
+                height: 40px;
+                padding-top: 8px;
+            }
+
+        }
+
+        .iconsanpham {
+            position: absolute;
+            animation-name: animateicon;
+            animation-duration: 0.5s;
+            animation-delay: 0.1s;
+            animation-fill-mode: both;
+            display: none;
+
+            @keyframes animateicon {
+                from {
+                    left: 30%;
+                    bottom: 100px;
+                    opacity: 0;
+
+                }
+
+                to {
+                    left: 30%;
+                    bottom: 23px;
+
+                }
+            }
+
+            button {
+                border: none;
+                line-height: 30px;
+                padding: 5px 10px;
+                margin-right: 5px;
+                background-color: $light;
+                box-shadow: 3px 3px 5px $grey;
+
+                a {
+                    @extend .reset-link;
+                    color: $dark;
+                    font-size: 20px;
+                }
+            }
+
+            button:hover {
+                background-color: $brown;
+            }
+        }
+
+        .timer-cd {
+            display: flex;
+            position: absolute;
+            left: 25%;
+            bottom: 25px;
+
+            .box {
+                width: 40px;
+                height: 40px;
+                background-color: $brown;
+                margin: 0px 16px 0px 0px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 20px;
+                color: $black;
+            }
+
+            span {
+                font-size: 16px;
+                color: $grey;
+            }
+        }
+    }
+
+    .card-body {
+        a {
+            @extend .reset-link;
+
+            .card-title {
+                color: $dark;
+                font-family: cormorantmd;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                text-transform: uppercase;
+                font-size: 25px;
+            }
+
+            .card-title:hover {
+                color: $brown;
+            }
+
+        }
+
+        .star {
+            color: $yellow;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 5px;
+
+        }
+
+        .gia {
+            color: $brown;
+            padding-bottom: 20px;
+            font-size: 20px;
+        }
+    }
+
+    @include respond(xl) {
+        .image {
+            .iconsanpham {
+                @keyframes animateicon {
+                    from {
+                        left: 22%;
+                        bottom: 100px;
+                        opacity: 0;
+
+                    }
+
+                    to {
+                        left: 22%;
+                        bottom: 5px;
+
+                    }
+                }
+            }
+
+            .timer-cd {
+                display: flex;
+                position: absolute;
+                bottom: 10px;
+                left: 23%;
+
+                .box {
+                    width: 30px;
+                    height: 30px;
+                    background-color: $brown;
+                    margin: 0px 10px 0px 0px;
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 16px;
+                    color: $black;
+                }
+
+                span {
+                    font-size: 13px;
+                    color: $grey;
+                    padding-top: 5px;
+                }
+            }
+        }
+
+        .card-body {
+            a {
+                .card-title {
+                    font-size: 16px;
+                }
+            }
+
+            .star {
+                font-size: 13px;
+            }
+
+            .gia {
+                font-size: 16px;
+            }
+        }
+    }
+
+
+    @include respond(lg) {
+        .image {
+            .iconsanpham {
+                position: absolute;
+                animation-name: animateicon;
+                animation-duration: 0.5s;
+                animation-delay: 0.1s;
+                animation-fill-mode: both;
+                display: none;
+
+                @keyframes animateicon {
+                    from {
+                        left: 33%;
+                        bottom: 100px;
+                        opacity: 0;
+                    }
+
+                    to {
+                        left: 33%;
+                        bottom: 5px;
+
+                    }
+                }
+            }
+
+            .timer-cd {
+                display: flex;
+                position: absolute;
+                bottom: 10px;
+                left: 33%;
+
+                .box {
+                    width: 30px;
+                    height: 30px;
+                    background-color: $brown;
+                    margin: 0px 10px 0px 0px;
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 16px;
+                    color: $black;
+                }
+
+                span {
+                    font-size: 13px;
+                    color: $grey;
+                    padding-top: 5px;
+                }
+            }
+        }
+
+        .card-body {
+            a {
+                .card-title {
+                    font-size: 20px;
+                }
+            }
+
+            .star {
+                font-size: 13px;
+            }
+
+            .gia {
+                font-size: 16p;
+            }
+
+        }
+
+        @include respond(md) {
+            .image {
+                .iconsanpham {
+                    position: absolute;
+                    animation-name: animateicon;
+                    animation-duration: 0.5s;
+                    animation-delay: 0.1s;
+                    animation-fill-mode: both;
+                    display: none;
+
+                    @keyframes animateicon {
+                        from {
+                            left: 28%;
+                            bottom: 100px;
+                            opacity: 0;
+
+                        }
+
+                        to {
+                            left: 28%;
+                            bottom: -4px;
+
+                        }
+
+                    }
+                }
+
+                .timer-cd {
+                    display: flex;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 28%;
+                }
+
+            }
+        }
+
+        @include respond(xs) {
+            .image {
+                .iconsanpham {
+                    position: absolute;
+                    animation-name: animateicon;
+                    animation-duration: 0.5s;
+                    animation-delay: 0.1s;
+                    animation-fill-mode: both;
+                    display: none;
+
+                    @keyframes animateicon {
+                        from {
+                            left: 30%;
+                            bottom: 100px;
+                            opacity: 0;
+
+                        }
+
+                        to {
+                            left: 30%;
+                            bottom: 5px;
+
+                        }
+
+                    }
+                }
+
+                .timer-cd {
+                    display: flex;
+                    position: absolute;
+                    bottom: 25px;
+                    left: 23%;
+
+                    .box {
+                        width: 40px;
+                        height: 40px;
+                        background-color: $brown;
+                        margin: 0px 16px 0px 0px;
+                        line-height: 40px;
+                        text-align: center;
+                        font-size: 26px;
+                        color: $black;
+                    }
+
+                    span {
+                        font-size: 16px;
+                        color: $grey;
+                        padding-top: 5px;
+                    }
+                }
+            }
+
+            .card-body {
+                a {
+                    .card-title {
+                        font-size: 25px;
+                    }
+                }
+
+                .star {
+                    font-size: 16px;
+                }
+
+                .gia {
+                    font-size: 20p;
+                }
+
+            }
+
+        }
+    }
+}
+
+.cardsanpham:hover {
+    .image {
+
+        .img1 {
+            opacity: 1;
+            // hover 1s nhanh dan deu
+            transition: all 0.3s linear;
+        }
+
+        .img2 {
+            opacity: 0;
+            transition: all 0.3s linear;
+        }
+
+        .preview {
+            display: block;
+        }
+
+        .timer-cd {
+            display: none;
+
+        }
+
+    }
+
+}
+
+
+// THANH BANNER 3
+.banner3 {
+    h2 {
+        font-family: cormorantmd;
+        text-transform: uppercase;
+        padding-top: 100px;
+    }
+
+    p {
+
+        font-size: 26px;
+        color: $grey;
+        padding-top: 40px;
+    }
+
+    button {
+        height: 40px;
+        background-color: $brown;
+        border-radius: 20px;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 40px;
+        font-size: 13px;
+        margin-bottom: 10px;
+
+        a {
+            @extend .reset-link;
+            color: $white;
+        }
+    }
+
+    img {
+        transition: all 0.5s linear;
+    }
+
+    img:hover {
+        transition: all 0.5s linear;
+        transform: translateY(-10px);
+    }
+
+
+    @include respond(xl) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 30px;
+        }
+
+        p {
+
+            font-size: 20px;
+            color: $grey;
+            padding-top: 30px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+    }
+
+    @include respond(lg) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 0px;
+        }
+
+        p {
+
+            font-size: 20px;
+            color: $grey;
+            padding-top: 5px;
+
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+    }
+
+    @include respond(md) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 0px;
+            font-size: 20px;
+        }
+
+        p {
+
+            font-size: 16px;
+            color: $grey;
+            padding-top: 5px;
+
+        }
+
+    }
+
+    @include respond(xs) {
+        button {
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+// THANH VIDEO
+.bannervideo {
+    background-color: $lightgray;
+
+    h1 {
+        font-family: cormorantmd;
+    }
+
+    .phim {
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $lightgray;
+            color: $grey;
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            z-index: 2;
+            top: 25%;
+            left: 45%;
+            position: absolute;
+            border-radius: 100%;
+            border: none;
+        }
+
+        .play-btn:before {
+            content: "";
+            position: absolute;
+            border: 7px solid $white;
+            border-radius: 50%;
+            animation: bloom1 1.5s linear infinite;
+            opacity: 0;
+            z-index: 1;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+        }
+
+        .play-btn:after {
+            content: "";
+            position: absolute;
+            border: 7px solid $grey;
+            border-radius: 50%;
+            animation: bloom2 1.5s linear infinite;
+            opacity: 0;
+            z-index: 1;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            animation-delay: 0.4s;
+            display: none;
+        }
+
+        @keyframes bloom1 {
+            0% {
+                transform: scale(0.5)
+            }
+
+            50% {
+                opacity: 1;
+
+            }
+
+            100% {
+                ransform: scale(1.5)
+            }
+
+        }
+
+        @keyframes bloom2 {
+            0% {
+                transform: scale(0.5)
+            }
+
+            50% {
+                opacity: 1;
+
+            }
+
+            100% {
+                ransform: scale(1.5)
+            }
+        }
+
+        .clip {
+            width: 100%;
+        }
+
+        h3 {
+            font-family: cormorantmd;
+            padding-top: 10px;
+
+        }
+
+        .btn-video {
+            color: $brown;
+            border-radius: 20px;
+            height: 40px;
+            border-color: $brown;
+            background: none;
+            border-style: double;
+            margin-top: 20px;
+        }
+
+        .btn-video:hover {
+            background-color: $light;
+        }
+
+
+    }
+
+    @include respond(xs) {
+        .phim {
+            .play-btn {
+                top: 15%;
+                left: 45%;
+            }
+        }
+    }
+
+}
+
+// THANH CARD KHÁCH HÀNG
+.cardkhachhang {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .image {
+        img {
+            border-radius: 50%;
+            width: 140px;
+            margin-top: 40px;
+
+        }
+    }
+
+    .card-body {
+        text-align: center;
+
+        a {
+            @extend .reset-link;
+
+            h4 {
+                font-family: cormorantmd;
+                color: $dark;
+                text-transform: uppercase;
+                margin-top: 20px;
+            }
+
+            h4:hover {
+                color: $brown;
+            }
+        }
+
+        h6 {
+            color: $dark;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .star {
+            color: $yellow;
+            width: 100%;
+            margin-top: 20px;
+
+        }
+
+        p {
+            color: $grey;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+    }
+
+    @include respond(md) {
+        .card-body {
+            a {
+                h4 {
+                    margin-top: 20px;
+                }
+            }
+
+            p {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    }
+
+    @include respond(sm) {
+        .card-body {
+
+            a {
+                h4 {
+                    margin-top: 20px;
+                }
+            }
+
+            p {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+// THANH BANNER 4
+.banner4 {
+    h2 {
+        font-family: cormorantmd;
+        text-transform: uppercase;
+        padding-top: 100px;
+    }
+
+    p {
+
+        font-size: 26px;
+        color: $grey;
+        padding-top: 40px;
+
+    }
+
+    button {
+        height: 40px;
+        background-color: $brown;
+        border-radius: 20px;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 40px;
+        font-size: 13px;
+        margin-bottom: 10px;
+
+        a {
+            @extend .reset-link;
+            color: $white;
+        }
+    }
+
+    img {
+        transition: all 0.5s linear;
+    }
+
+    img:hover {
+        transition: all 0.5s linear;
+        transform: translateY(-10px);
+    }
+
+    @include respond(xl) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 30px;
+
+        }
+
+        p {
+
+            font-size: 20px;
+            color: $grey;
+            padding-top: 30px;
+
+        }
+
+        button {
+            margin-top: 30px;
+        }
+    }
+
+    @include respond(lg) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 0px;
+        }
+
+        p {
+
+            font-size: 20px;
+            color: $grey;
+            padding-top: 5px;
+
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+    }
+
+    @include respond(md) {
+        h2 {
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            padding-top: 0px;
+            font-size: 20px;
+        }
+
+        p {
+
+            font-size: 16px;
+            color: $grey;
+            padding-top: 5px;
+
+        }
+
+    }
+
+    @include respond(xs) {
+        h2 {
+            padding-top: 20px;
+        }
+    }
+}
+
+// NÚT CHÍNH
+.btn-main {
+    height: 40px;
+    background-color: $brown;
+    border-radius: 20px;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 40px;
+    font-size: 13px;
+    margin-bottom: 10px;
+
+    a {
+        @extend .reset-link;
+        color: $white;
+    }
+}
+
+.btn-main:hover {
+    background-color: $grey;
+}
+
+// THANH BANNER PHỤ
+.banner-phu {
+    .img-banner-phu {
+        position: relative;
+        background-image: url("../images/bannerphu/slidder-banner-phu.jpg");
+        height: 860px;
+        // canh giua theo chieu dọc
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        background-attachment: fixed;
+
+        .tieude-banner-phu {
+            position: absolute;
+            right: 10%;
+            color: $white;
+            text-align: right;
+
+            h3 {
+                font-size: 30px;
+
+            }
+
+            p {
+                font-size: 60px;
+                font-family: cormorantmd;
+                line-height: 80px;
+                padding-top: 30px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    @include respond(xl) {
+        .img-banner-phu {
+            height: 600px;
+        }
+    }
+
+    @include respond(lg) {
+        .img-banner-phu {
+            height: 500px;
+
+            .tieude-banner-phu {
+                right: 10%;
+
+                h3 {
+                    font-size: 20px;
+
+                }
+
+                p {
+                    font-size: 40px;
+                    line-height: 50px;
+                    padding-top: 25px;
+
+                }
+
+                button {
+                    margin-top: 20px;
+                }
+            }
+
+        }
+    }
+
+    @include respond(md) {
+        .img-banner-phu {
+            height: 400px;
+
+        }
+    }
+
+    @include respond(xs) {
+        .img-banner-phu {
+            height: 220px;
+
+            .tieude-banner-phu {
+                right: 10%;
+
+                h3 {
+                    font-size: 10px;
+                }
+
+                p {
+                    font-size: 20px;
+                    line-height: 26px;
+                    padding-top: 5px;
+
+                }
+
+                button {
+                    margin-top: 5px;
+                    font-size: 8px;
+                    padding: 0px 5px;
+                    height: 25px;
+                }
+            }
+
+        }
+    }
+}
+
+
+// THANH TIN TỨC
+#tintuc {
+
+    // vị tri button của owl carouse
+    .owl-nav {
+        button {
+            top: 25%;
+
+            i {
+                color: $dark;
+            }
+        }
+    }
+
+    .card-tintuc {
+        .image {
+            overflow: hidden;
+
+            img {
+                transition: all 0.3s linear;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                    transition: all 0.3s linear;
+                }
+            }
+        }
+
+        .card-body {
+            a {
+                @extend .reset-link;
+
+                h4 {
+                    font-size: 30px;
+                    font-family: cormorantmd;
+                    padding-top: 20px;
+                    color: $grey;
+
+                }
+
+            }
+
+            p {
+                font-size: 16px;
+                padding: 10px 20px;
+                line-height: 30px;
+                color: $grey;
+            }
+
+            button {
+                margin-top: 15px;
+                padding: 5px 20px;
+                border-style: dotted;
+                height: 40px;
+                background: none;
+                border-radius: 20px;
+                border: 2px solid $brown;
+
+                a {
+                    color: $brown;
+                    font-size: 16px;
+
+                }
+
+            }
+
+            button:hover {
+                background-color: $lightgray;
+            }
+
+        }
+    }
+
+    @include respond(xl) {
+        .owl-nav {
+            button {
+                top: 15%;
+            }
+        }
+    }
+
+}
+
+// THANH DỊCH VỤ
+.dichvu {
+    margin-top: 80px;
+
+    .cart-dichvu {
+        text-align: center;
+        position: relative;
+        height: 200px;
+        margin: 0px 30px;
+
+        .i1 {
+            a {
+                i {
+                    font-size: 50px;
+                    color: $brown;
+                    position: absolute;
+                    top: 150px;
+                    animation-name: icon1;
+                    animation-duration: 0.2s;
+                    animation-delay: 0.1s;
+                    animation-fill-mode: both;
+                    display: none;
+                    transition: all 0.2s linear;
+
+                    @keyframes icon1 {
+
+                        from {
+                            left: 40%;
+                            top: 150px;
+                            opacity: 0;
+                        }
+
+                        to {
+                            left: 40%;
+                            top: 0px;
+                            opacity: 1;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .i2 {
+            a {
+                i {
+                    font-size: 50px;
+                    color: $grey;
+                    transition: all 0.2s linear;
+                    opacity: 1;
+                }
+            }
+        }
+
+        a {
+            @extend .reset-link;
+
+
+            h6 {
+                font-size: 20px;
+                color: $dark;
+                padding-top: 20px;
+
+
+            }
+        }
+
+        p {
+            font-size: 16px;
+            color: $grey;
+            padding-top: 10px;
+        }
+    }
+
+    .cart-dichvu:hover {
+
+
+        .i1 {
+            a {
+                i {
+                    display: block;
+                    transition: all 0.2s linear;
+                }
+            }
+        }
+
+        .i2 {
+            a {
+                i {
+                    opacity: 0;
+                    transition: all 0.2s linear;
+                    transform: translateY(150px);
+                    // doi vi tri theo chieu Y
+                }
+            }
+        }
+    }
+
+    @include respond(lg) {
+        .cart-dichvu {
+            margin: 0px 0px;
+        }
+    }
+
+    @include respond(xs) {
+        .cart-dichvu {
+            .i1 {
+                a {
+                    i {
+                        @keyframes icon1 {
+
+                            from {
+                                left: 42%;
+                                top: 150px;
+                                opacity: 0;
+                            }
+
+                            to {
+                                left: 42%;
+                                top: 0px;
+                                opacity: 1;
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+// THANH FOOTER
+.footer {
+    background-color: $black;
+
+    .footer-body {
+        padding-top: 60px;
+
+        a {
+            @extend .reset-link;
+            color: $white;
+
+            h3 {
+                font-family: cormorantmd;
+                text-transform: uppercase;
+                padding-bottom: 5px;
+                color: $brown;
+                margin-bottom: 40px;
+            }
+
+            // .gachchan {
+            //     border-bottom: 1px solid $brown;
+            //     width: 25%;
+            //     margin-bottom: 40px;
+
+            // }
+
+            p {
+                padding-bottom: 25px;
+            }
+
+        }
+
+        .search-footer {
+            background-color: $light;
+            height: 40px;
+            border: 1px solid $grey;
+            border-radius: 25px;
+            margin: 5px 0px;
+
+            input {
+                background: none;
+                border: none;
+                height: 40px;
+                width: 100%;
+                outline: none;
+            }
+
+            button {
+                border: none;
+                background: none;
+                height: 40px;
+                width: 100%;
+
+                i {
+                    font-size: 20px;
+                    color: $brown;
+
+                }
+            }
+        }
+
+        .icon-footer {
+            margin-left: -38px;
+            margin-top: 25px;
+
+            ul {
+                li {
+                    a {
+                        padding-right: 15px;
+                        font-size: 20px;
+
+                        .fa-facebook-f {
+                            color: #3B5998;
+                        }
+
+                        .fa-twitter {
+                            color: #55ACEE;
+                        }
+
+                        .fa-google {
+                            color: #dd4b39;
+
+                        }
+
+                        .fa-youtube {
+                            color: #bb0000;
+                        }
+
+                        .fa-instagram {
+                            color: #125688;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    hr {
+        color: $white;
+    }
+
+    .footer-end {
+        color: $white;
+        padding-bottom: 30px;
+
+        p {
+            font-family: cormorantmd;
+            font-size: 20px;
+        }
+
+        .image-end {
+            justify-content: flex-end;
+            margin-top: 10px;
+
+            img {
+                width: 30%;
+            }
+        }
+    }
+
+    @include respond(xs) {
+        .footer-end {
+            p {
+                text-align: center;
+            }
+
+            .image-end {
+                justify-content: center;
+                padding-top: 20px;
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+}
+
+// THANH LOGIN
+#modallogin {
+    .modal-dialog {
+        .modal-content {
+            color: $grey;
+
+            .modal-header {
+                h5 {
+                    font-family: cormorantmd;
+                    font-size: 40px;
+                    color: $brown;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+            }
+
+            .modal-body {
+                .form-login {
+                    label {
+                        font-size: 26px;
+                        font-family: cormorantmd;
+                        color: $dark;
+                    }
+
+                    .nut-luumatkhau {
+                        display: flex;
+
+                        label {
+                            font-family: roboto;
+                            font-size: 16px;
+
+                        }
+
+                        .check1 {
+                            padding-right: 60px;
+                        }
+
+                    }
+
+                }
+            }
+
+            .modal-footer {
+                .btn-main {
+                    border-radius: 5px;
+                    font-size: 16px;
+                }
+            }
+
+            .dangky {
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+
+                .nut-dk {
+                    a {
+                        @extend .reset-link;
+                        color: $dark;
+                        font-weight: bold;
+                        padding-left: 10px;
+                    }
+
+                    .gach-dk {
+                        border-bottom: 1px solid $grey;
+                        margin-left: 10px;
+                    }
+
+                    a:hover {
+                        color: $brown;
+                    }
+
+                }
+
+            }
+        }
+    }
+}
+
+// MENU CUA IPHONE
+#menu-iphone {
+    background-color: $white;
+    width: 90%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 100;
+    height: 100vh;
+    margin-left: 10px;
+    margin-right: 30px;
+    display: none;
+
+    #bt-main-nav-close2 {
+        border: none;
+        background: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 16px;
+        color: $grey;
+
+    }
+
+    ul {
+        @extend .reset-list;
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+
+        li {
+            border-bottom: 1px solid $grey;
+
+            a {
+                @extend .reset-link;
+                display: block;
+                color: $grey;
+                line-height: 40px;
+                font-size: 20px;
+            }
+
+            a:hover {
+                color: $brown;
+            }
+
+            #accordionsanpham {
+                padding-left: 0px;
+                outline: none;
+
+                .accordion-item {
+                    border: none;
+                    outline: none;
+                    background: none;
+                    position: relative;
+
+                    .accordion-header {
+                        outline: none;
+                        border-bottom: 0.5px solid $light;
+
+                        .nut-sanpham {
+                            font-size: 20px;
+                        }
+
+                        .nut-sanpham:hver {
+                            color: $brown;
+                        }
+
+                        .accordion-button {
+                            background: none;
+                            border: none;
+                            padding-left: 0px;
+                            padding-bottom: 10px;
+                            margin-right: 0px;
+
+                            button {
+                                padding-left: 0px;
+                                padding-top: 10px;
+                                outline: none;
+                            }
+
+                        }
+
+                        .collapse {
+                            border: none;
+                            outline: none;
+                            background: none;
+                        }
+
+                        .show {
+                            border: none;
+                            outline: none;
+                            background: none;
+                        }
+                    }
+
+                    .accordion-collapse {
+                        border: none;
+                        outline: none;
+                        background: none;
+
+                        .accordion-body {
+                            padding-left: 0px;
+                            margin-left: 0px;
+                            background-color: $white;
+                            width: 100%;
+
+                            .sub-sanpham {
+                                overflow-y: scroll;
+                                text-align: left;
+                                width: 90%;
+                                height: 100vmax;
+
+                                // thanh trươt vo 90%
+                                ul {
+                                    @extend .reset-list;
+                                    padding-top: 3px;
+
+                                    li {
+                                        border: none;
+
+                                        a {
+
+                                            h3 {
+                                                font-family: cormrantmd;
+                                                color: $dark;
+                                                font-size: 20px;
+                                                text-transform: uppercase;
+                                                padding-bottom: 10px;
+                                            }
+
+                                            h3:hover {
+                                                color: $brown;
+                                            }
+
+                                            @extend .reset-link;
+                                            color: $grey;
+                                            font-size: 16px;
+                                            line-height: 20px;
+                                            padding-bottom: 5px;
+
+                                        }
+
+                                        a:hover {
+                                            color: $brown;
+                                        }
+                                    }
+                                }
+
+                                h3 {
+                                    font-family: cormorantmd;
+                                    color: $dark;
+                                    font-size: 32px;
+                                }
+
+                                .sub-right {
+                                    height: 1050px;
+                                    background-color: $white;
+                                    width: 100%;
+
+                                    .sub-right-img {
+                                        height: 155px;
+                                        display: flex;
+                                        margin-top: 30px;
+                                        background-color: $lightbrown;
+
+                                        img {
+                                            padding: 15px 15px;
+                                        }
+
+                                        h6 {
+                                            padding-top: 40px;
+                                            font-size: 16px;
+                                            text-align: center;
+                                            color: $dark;
+                                            padding-right: 50px;
+                                        }
+
+                                        p {
+                                            padding-top: 30px;
+                                            font-size: 16px;
+                                            text-align: center;
+                                            color: $brown;
+                                            padding-right: 50px;
+                                        }
+
+
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// THANH GIO HÀNG PHỤ
+.sub-giohang {
+    .w3-modal {
+        .w3-modal-content {
+            position: fixed;
+            right: 0px;
+            height: 100vh;
+            z-index: 20;
+            width: 500px;
+            top: 60px;
+            overflow-y: scroll;
+            padding-left: 10px;
+
+        }
+
+        .sub-giohang-title {
+            h2 {
+                font-size: 26px;
+                padding-top: 30px;
+                font-family: roboto;
+                font-weight: bold;
+                color: $dark;
+            }
+
+            .w3-button {
+                font-size: 26px;
+                padding-right: 30px;
+            }
+        }
+
+        .sub-giohang-body {
+            font-size: 16px;
+            border-bottom: 1px solid $light;
+            padding-bottom: 20px;
+
+            .sub-giohang-image {
+                display: flex;
+                align-items: center;
+
+                input {
+                    margin-right: 10px;
+                }
+
+                img {
+                    border: 1px solid $lightgray;
+                    margin-right: 20px;
+                    width: 100%;
+                }
+            }
+
+            .sub-giohang-name {
+                a {
+                    @extend .reset-link;
+
+                    h3 {
+                        padding-bottom: 10px;
+                        color: $grey;
+                        font-size: 20px;
+                        font-family: cormorantmd;
+                    }
+                }
+
+                h4 {
+                    color: $grey;
+                    font-size: 16px;
+                }
+
+                .soluong-gia {
+                    display: flex;
+                    padding-top: 30px;
+
+                    h5 {
+                        padding-right: 5px;
+                        color: $grey;
+                    }
+
+                    p {
+                        color: $brown;
+                    }
+                }
+            }
+
+            a {
+                @extend .reset-link;
+
+                i {
+                    font-size: 16px;
+                    color: $grey;
+                    padding-right: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+
+        .sub-giohang-footer {
+            margin-top: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+
+            .sub-tongtien {
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+                border-top: 1px solid $dark;
+                font-weight: bold;
+                padding-top: 20px;
+
+                p {
+
+                    color: $dark;
+                    padding-left: 30px;
+                }
+
+                span {
+                    color: $brown;
+                    padding-right: 30px;
+                }
+            }
+
+            .btn-main {
+                font-size: 16px;
+                margin-right: 20px;
+                margin-left: 20px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+// TRANG SẢN PHẨM
+
+// THANH PHÂN TRANG
+.bg-breadcrumb-sp {
+    background-color: $lightgray;
+    padding: 20px;
+
+    .breadcrumb {
+        width: 100%;
+        justify-content: center;
+
+        a {
+            @extend .reset-link;
+            font-size: 26px;
+            color: $grey;
+        }
+
+        span {
+            font-size: 26px;
+            color: $black;
+        }
+    }
+
+    .tieude-page {
+        font-family: cormorantmd;
+        text-align: center;
+        text-transform: uppercase;
+        color: $black;
+
+    }
+}
+
+// NÚT LỌC
+.filter-sanpham {
+    #filter-nut {
+        border: none;
+        background-color: $brown;
+        height: 40px;
+        width: 100px;
+        color: $white;
+        font-size: 16px;
+        display: none;
+    }
+
+    .form-locsp {
+        justify-items: end;
+        text-align: end;
+
+        select {
+            height: 40px;
+            color: $dark;
+            font-size: 13px;
+            outline: none;
+            border: 1px solid $lightgray;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px $light;
+
+            option {
+                font-size: 13px;
+            }
+        }
+    }
+
+    @include respond(lg) {
+        #filter-nut {
+            display: block;
+        }
+    }
+
+}
+
+// NỌI DUNG SAN PHAM
+#sidebar {
+    margin-top: 20px;
+
+    #bt-sidebar-close {
+        border: none;
+        background: none;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        display: none;
+        color: $grey;
+    }
+
+    .accordion {
+        margin-bottom: 100px;
+
+        .accordion-item {
+            .accordion-header {
+                background-color: $lightbrown;
+                border-radius: 0px;
+                border: none;
+                outline: none;
+                border-left: 5px solid $brown;
+
+                .accordion-button {
+                    font-size: 16px;
+                    font-weight: bold;
+                    background: none;
+                    text-transform: uppercase;
+                    color: $dark;
+
+                }
+            }
+
+            .accordion-body {
+                .form-check {
+                    margin: 16px 0px;
+                    color: $grey;
+                    padding-right: 50px;
+
+                    .star {
+                        color: $yellow;
+                        padding-left: 20px;
+                        font-size: 16px;
+
+                        i {
+                            padding-right: 10px;
+                        }
+                    }
+
+                }
+            }
+
+            .cannang {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+    }
+
+    @include respond(lg) {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 40px;
+        width: 350px;
+        background-color: $white;
+        z-index: 10;
+        padding-top: 50px;
+        overflow-y: scroll;
+        height: 100lvh;
+
+        #bt-sidebar-close {
+            display: block;
+        }
+    }
+
+}
+
+.pagination {
+    width: 100%;
+    justify-content: center;
+    margin: 24px auto;
+
+    .page-item {
+        .page-link {
+            color: $grey;
+            font-size: 16px;
+            padding: 10px 20px;
+
+            span {
+                margin: 0px -5px;
+            }
+        }
+
+        &.active {
+            .page-link {
+                background-color: #cf9167;
+                padding: 10px 20px;
+                border: 1px solid $brown;
+            }
+        }
+    }
+}
+
+// TRANG SAN PHAM CHI TIET
+
+.sanpham-chitiet {
+    .sanpham-chitiet-left {
+        #sanpham-chitiet-image {
+            .easyzoom {
+                text-align: center;
+                margin-left: -10px;
+
+                a {
+
+                    img {
+                        border: 1px solid $light;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .thumbnails {
+                align-items: center;
+                margin-right: -20px;
+
+                li {
+                    margin-bottom: 10px;
+                    width: 80%;
+                }
+            }
+        }
+
+        .left-dichvu {
+            background-color: $light;
+            padding: 40px 10px;
+            margin: 37px 0px 40px 10px;
+
+            ul {
+                @extend .reset-list;
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+                color: $grey;
+                padding: 0px 40px;
+
+                li {
+                    padding-right: 5px;
+
+                    i {
+                        padding-right: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sanpham-chitiet-right {
+        color: $grey;
+
+        h6 {
+            font-size: 20px;
+            font-weight: bold;
+            color: $dark;
+            padding-bottom: 15px;
+            margin-top: -5px;
+
+            span {
+                color: #cf9167;
+            }
+        }
+
+        h3 {
+            font-size: 30px;
+            font-family: cormorantmd;
+            text-transform: uppercase;
+            color: $dark;
+            padding-bottom: 10px;
+        }
+
+        .sanpham-chitiet-gia {
+            display: flex;
+            padding-bottom: 10px;
+            line-height: 30px;
+
+            .gia {
+                color: $brown;
+                font-size: 16px;
+                padding-right: 20px;
+            }
+
+            .ct-giamgia {
+                background-color: #cf9167;
+                color: $white;
+                padding: 0px 10px;
+                font-size: 16px;
+            }
+        }
+
+        .star {
+            color: $yellow;
+            padding-right: 5px;
+            padding-left: 0px;
+            margin-bottom: 10px;
+
+            span {
+                color: $grey;
+            }
+        }
+
+        .sanpham-chitiet-quangcao {
+            color: $pink;
+            font-size: 13px;
+            padding-bottom: 15px;
+        }
+
+        .sp-ct-datngay {
+            ul {
+
+                font-size: 16px;
+                margin-bottom: 20px;
+                line-height: 25px;
+                padding-left: 20px;
+
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        h4 {
+            font-weight: bold;
+            color: $dark;
+            font-size: 20px;
+            padding-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        .timer-cd {
+            display: flex;
+            padding-bottom: 50px;
+
+            .box {
+                width: 40px;
+                height: 40px;
+                background-color: $brown;
+                margin: 0px 10px 0px 0px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 16px;
+                color: $black;
+            }
+
+            span {
+                font-size: 16px;
+                color: $grey;
+                padding-top: 10px;
+            }
+        }
+
+        .sp-ct-trongluong {
+            font-size: 16px;
+
+            input {
+                padding-right: 15px;
+                color: $grey;
+            }
+
+            label {
+                padding-right: 20px;
+            }
+
+        }
+
+        .themgiohang {
+            margin-top: 15px;
+            display: flex;
+
+            .them-soluong {
+                display: flex;
+
+                .btn-soluong {
+                    border: none;
+                    background: none;
+                    height: 50px;
+                    width: 50px;
+                    color: $grey;
+                    font-size: 13px;
+                    justify-content: center;
+                    background-color: $lightbrown;
+                }
+
+                input {
+                    width: 60%;
+                    height: 50px;
+                    text-align: center;
+                    border: none;
+                    background-color: $lightbrown;
+                    padding-left: 10px;
+                    font-size: 16px;
+                    color: $grey;
+                    outline: none;
+                }
+            }
+
+            .btn-themgiohang {
+                font-size: 20px;
+
+                button {
+                    width: 100%;
+                    background-color: $brown;
+                    border: none;
+                    color: $white;
+                    padding: 10px 0px;
+
+                    i {
+                        margin-right: 20px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+        }
+
+        .btn-muangay {
+            margin-top: 20px;
+            font-size: 20px;
+
+            button {
+                width: 100%;
+                border: none;
+                background-color: $brown;
+                color: $white;
+                padding: 10px 0px;
+            }
+        }
+
+        .sp-ct-dichvu {
+            margin-top: 30px;
+
+            ul {
+                @extend .reset-list;
+                border-bottom: 1px solid $grey;
+
+                li {
+                    margin-bottom: 20px;
+
+                    a {
+                        @extend .reset-link;
+                        font-size: 16px;
+                        padding-right: 10px;
+                        color: $dark;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+
+        }
+
+        .xemsanpham {
+            margin-top: 25px;
+            margin-bottom: 20px;
+
+            a {
+                @extend .reset-link;
+                font-size: 16px;
+
+                i {
+                    margin-right: 20px;
+                }
+
+            }
+
+        }
+
+        .sp-ct-dv-giaohang {
+            ul {
+                @extend .reset-list;
+
+                li {
+                    margin-bottom: 10px;
+
+                    i {
+                        padding-right: 30px;
+                        color: $grey;
+                    }
+                }
+            }
+
+        }
+    }
+
+    @include respond(xl) {
+        .sanpham-chitiet-left {
+            .left-dichvu {
+                background-color: $light;
+                padding: 40px 10px;
+                margin: 37px 0px 40px 10px;
+
+                ul {
+                    font-size: 16px;
+                    color: $grey;
+                    padding: 0px 20px;
+
+                    li {
+                        padding-right: 5px;
+
+                        i {
+                            padding-right: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond(lg) {
+        .sanpham-chitiet-left {
+            #sanpham-chitiet-image {
+                .easyzoom {
+                    margin-left: 0px;
+                }
+
+                .thumbnails {
+                    display: flex;
+                    margin-top: 25px;
+
+                    li {
+                        width: 25%;
+                        padding-left: 0px;
+
+                        a {
+                            margin-right: 5px;
+
+                        }
+
+                    }
+                }
+            }
+
+            .left-dichvu {
+                margin-left: 0px;
+                margin-top: 30px;
+                padding-left: 0px;
+                padding-right: 0px;
+                display: flex;
+
+                ul {
+                    font-size: 13px;
+                    color: $grey;
+                    padding: 0px 20px;
+
+                    li {
+                        padding-right: 5px;
+
+                        i {
+                            padding-right: 25px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .sanpham-chitiet-right {
+            h6 {
+                padding-bottom: 5px;
+            }
+
+            h3 {
+                padding-bottom: 5px;
+            }
+
+            .sanpham-chitiet-gia {
+                margin-bottom: 0px;
+            }
+
+            .sp-ct-datngay {
+                ul {
+
+                    line-height: 20px;
+                    margin-bottom: 5px;
+
+                    li {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+
+            h4 {
+                padding-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            .timer-cd {
+                display: flex;
+                padding-bottom: 20px;
+            }
+
+            .themgiohang {
+                margin-top: 10px;
+            }
+
+            .btn-muangay {
+                margin-top: 10px;
+
+            }
+
+            .sp-ct-dichvu {
+                margin-top: 10px;
+
+                ul {
+
+                    li {
+                        margin-bottom: 10px;
+
+                        a {
+                            @extend .reset-link;
+                            font-size: 16px;
+                            padding-right: 10px;
+                            color: $dark;
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+
+            }
+
+            .xemsanpham {
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            .sp-ct-dv-giaohang {
+                ul {
+                    li {
+                        margin-bottom: 0px;
+
+                    }
+                }
+
+            }
+        }
+    }
+
+    @include respond(md) {
+        .sanpham-chitiet-left {
+            #sanpham-chitiet-image {
+                .easyzoom {
+                    margin-left: 0px;
+                }
+
+                .thumbnails {
+                    flex-direction: column;
+                    margin-top: 0px;
+                    margin-left: -15px;
+
+                    li {
+                        width: 74%;
+                        margin-bottom: 0px;
+
+                        a {
+                            margin-bottom: 5px;
+
+                        }
+
+                    }
+                }
+            }
+
+            .left-dichvu {
+                margin-left: 0px;
+                margin-top: 30px;
+                padding-left: 30px;
+                padding-right: 30px;
+                display: flex;
+
+                ul {
+                    font-size: 20px;
+                    color: $grey;
+                    padding: 0px 5px;
+
+                    li {
+                        padding-right: 20px;
+
+                        i {
+                            padding-right: 30px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .sanpham-chitiet-right {
+            .xemsanpham {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .sp-ct-dv-giaohang {
+                ul {
+                    li {
+                        font-size: 13px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+            .sp-ct-dichvu {
+                margin-top: 20px;
+
+                ul {
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @include respond(sm) {
+        .sanpham-chitiet-left {
+            .left-dichvu {
+                margin-left: 0px;
+                margin-top: 30px;
+                padding-left: 15px;
+                padding-right: 15px;
+                display: flex;
+
+                ul {
+                    font-size: 13px;
+                    color: $grey;
+                    padding: 0px 0px;
+
+                    li {
+                        padding-right: 5px;
+
+                        i {
+                            display: none;
+                        }
+
+                        // &:nth-child(2) {
+                        //     display: none;
+                        // }
+                    }
+
+                }
+
+            }
+        }
+
+        .sanpham-chitiet-right {
+            h3 {
+                font-size: 25px;
+            }
+
+            .sanpham-chitiet-gia {
+                font-size: 13px;
+                line-height: 25px;
+
+                .gia {
+                    font-size: 16px;
+                }
+
+                .ct-giamgia {
+                    font-size: 16px;
+
+                }
+            }
+
+            .sp-ct-datngay {
+                ul {
+
+                    li {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            h4 {
+                font-size: 20px;
+            }
+
+            .themgiohang {
+                .them-soluong {
+                    margin-bottom: 20px;
+
+                    input {
+                        width: 20%;
+                    }
+                }
+
+            }
+
+            .xemsanpham {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .sp-ct-dv-giaohang {
+                ul {
+                    li {
+                        font-size: 13px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
+
+.sanpham-chitiet-thongtin {
+    .nav {
+        justify-content: center;
+
+        .nav-item {
+            .nav-link {
+                color: $dark;
+                font-size: 25px;
+                border-radius: 0;
+                padding-bottom: 15px;
+                margin-bottom: -15px;
+                padding-left: 0px;
+                padding-right: 0px;
+                margin-right: 30px;
+
+                &.active {
+                    background: none;
+                    color: $dark;
+                    border-bottom: 3px solid $brown;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        .tab-pane {
+            .table-motasanpham {
+                background-color: $light2;
+                padding-top: 50px;
+                font-size: 20px;
+                padding-bottom: 50px;
+
+                p {
+                    color: $grey;
+                    text-align: justify;
+                }
+
+                h3 {
+                    font-weight: bold;
+                    padding-top: 30px;
+                    text-align: center;
+                    color: $dark;
+                }
+
+                table {
+                    margin-top: 30px;
+                    width: 100%;
+                    background-color: $white;
+
+                    tbody {
+                        tr {
+                            line-height: 50px;
+                            border: 1px solid $light ;
+
+                            td {
+                                color: $grey;
+                                padding-left: 30px;
+                            }
+                        }
+
+                        // odd là hàng le even là hàng chăn 
+                        tr:nth-child(odd) {
+                            background-color: $lightbrown;
+                        }
+                    }
+                }
+            }
+
+            .table-danhgia {
+                background-color: $light2;
+                color: $grey;
+                padding-bottom: 50px;
+
+                .table-danhgia-left {
+                    h2 {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                        padding-top: 50px;
+                    }
+
+                    .noidung-danhgia {
+                        margin-top: 80px;
+
+                        img {
+                            border-radius: 50%;
+                            width: 100%;
+                        }
+
+                        a {
+                            @extend .reset-link;
+
+                            h3 {
+                                text-transform: uppercase;
+                                color: $dark;
+                                font-family: cormrantmd;
+                                padding-bottom: 10px;
+                                font-size: 20px;
+                            }
+                        }
+
+                        h6 {
+                            color: $dark;
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-bottom: 5px;
+                        }
+
+                        .star {
+                            color: $yellow;
+                            padding-bottom: 5px;
+                            padding-right: 5px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                            margin-right: 30px;
+                        }
+                    }
+                }
+
+                .table-danhgia-right {
+                    h2 {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                        padding-top: 50px;
+                    }
+
+                    .noidungthem-danhgia {
+                        margin-top: 80px;
+                        background-color: $lightbrown;
+                        padding: 50px 50px;
+
+                        h3 {
+                            text-transform: uppercase;
+                            padding-bottom: 10px;
+                            color: $dark;
+                            font-family: cormrantmd;
+                            font-size: 25px;
+                        }
+
+                        .star {
+                            color: $yellow;
+                            font-size: 20px;
+                            padding-bottom: 20px;
+                        }
+
+                        label {
+                            font-size: 20px;
+                            padding-bottom: 10px;
+                            padding-top: 10px;
+                        }
+
+                        input {
+                            padding-bottom: 10px;
+                            line-height: 100px;
+                            font-size: 20px;
+                            color: $grey;
+                        }
+
+                        button {
+                            border: none;
+                            background-color: $brown;
+                            color: $white;
+                            font-size: 20px;
+                            padding: 0px 40px;
+                            line-height: 50px;
+                            border-radius: 10px;
+                            margin-top: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond(sm) {
+        .tab-content {
+            .tab-pane {
+                .table-danhgia {
+                    .table-danhgia-left {
+                        h2 {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .table-danhgia-right {
+                        h2 {
+                            font-size: 20px;
+                            padding-top: 40px;
+                        }
+
+                        .noidungthem-danhgia {
+                            margin-top: 30px;
+
+                            h3 {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// TRANG GIO HANG
+.giohang {
+    .giohang-left {
+        color: $grey;
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: $dark;
+            margin-left: -10px;
+            text-transform: uppercase;
+        }
+
+        .giohang-border {
+            border: 1px solid $light;
+        }
+
+        .giohang-title {
+            margin-top: 10px;
+
+            h3 {
+                font-size: 16px;
+                color: $dark;
+                line-height: 30px;
+                font-family: roboto;
+            }
+        }
+
+        .giohang-image,
+        .giohang-name,
+        .giohang-trongluong,
+        .giohang-dongia,
+        .giohang-soluong,
+        .giohang-thanhtien,
+        .giohang-xoa {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .giohang-image {
+            border-right: none;
+
+            .form-check-input {
+                font-size: 16px;
+                border: 1px solid $grey;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
+
+        .giohang-name {
+            border-right: none;
+
+            h4 {
+
+                font-size: 16px;
+                color: $dark;
+
+            }
+        }
+
+        .giohang-tl-gia {
+            display: flex;
+            padding: 0px 0px;
+            border-right: none;
+
+            .giohang-trongluong {
+                border-right: 1px solid $light;
+
+                select {
+                    color: $grey;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    height: 40px;
+                    background-color: $lightbrown;
+                    border-radius: 0px;
+                    width: 80%;
+                    padding-left: 10px;
+                    padding-right: 5px;
+
+                    option {
+                        font-size: 16px;
+                        outline: none;
+                        color: $grey;
+                    }
+                }
+            }
+
+            .giohang-dongia {
+                color: $brown;
+                font-size: 16px;
+                border-right: none;
+            }
+        }
+
+        .giohang-gia {
+            display: flex;
+            border-right: none;
+            padding: 0px 0px;
+
+
+            .giohang-soluong {
+                border-right: 1px solid $light;
+
+                button {
+                    border: none;
+                    background: none;
+                    height: 40px;
+                    width: 40px;
+                    color: $grey;
+                    font-size: 13px;
+                    justify-content: center;
+                    background-color: $lightbrown;
+                }
+
+                input {
+                    width: 30%;
+                    height: 40px;
+                    text-align: center;
+                    border: none;
+                    background-color: $lightbrown;
+                    padding-left: 8px;
+                    font-size: 16px;
+                    color: $grey;
+                    outline: none;
+                }
+            }
+
+            .giohang-thanhtien {
+                border-right: none;
+                color: $brown;
+                font-size: 16px;
+
+            }
+        }
+
+        .giohang-xoa {
+            padding-right: 10px;
+
+            button {
+                border: none;
+                background: none;
+                color: $grey;
+            }
+        }
+
+        .gh-magiamgia {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            margin-top: 30px;
+            padding-left: 0px;
+
+            input {
+                height: 40px;
+                padding-left: 10px;
+                margin-right: 10px;
+                border-radius: 10px;
+                border: 1px solid $light;
+                font-size: 16px;
+            }
+
+            .btn-main {
+                height: 40px;
+                border-radius: 10px;
+                margin-top: 10px;
+                color: $white;
+                font-size: 16px;
+            }
+        }
+
+        .gh-muatiep {
+            display: flex;
+            justify-content: end;
+            padding-right: 0px;
+
+
+            .btn-main {
+                height: 40px;
+                border-radius: 10px;
+                color: $white;
+                font-size: 16px;
+                margin-top: 30px;
+
+            }
+        }
+
+        .gh-gach {
+            border-top: 1px solid $light;
+        }
+
+        .gh-dichvu {
+            background-color: $lightgray;
+            text-align: center;
+            color: $grey;
+            padding: 20px 0px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            a {
+                @extend .reset-link;
+
+                i {
+                    font-size: 30px;
+                    color: $grey;
+                }
+            }
+
+            h4 {
+                padding-top: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+
+            p {
+                font-size: 13px;
+                padding: 0px 30px;
+            }
+        }
+    }
+
+    .giohang-right {
+        background-color: $lightbrown;
+        margin-left: 20px;
+        margin-top: 12px;
+        color: $grey;
+        padding: 30px 30px;
+
+        h3 {
+            color: $dark;
+            text-transform: uppercase;
+            font-size: 25px;
+            font-family: cormorantmd;
+            padding-top: 20px;
+        }
+
+        .tongphu {
+            border-bottom: 2px solid $light;
+            padding-top: 30px;
+
+            h4 {
+                font-size: 20px;
+                color: $dark;
+                padding-bottom: 40px;
+                font-weight: bold;
+            }
+
+            p {
+                text-align: end;
+                color: $brown;
+                font-size: 20px;
+            }
+        }
+
+        .gh-giaohang {
+            padding-top: 30px;
+
+            h5 {
+                font-size: 20px;
+                color: $dark;
+                padding-bottom: 20px;
+            }
+
+            h6 {
+                font-size: 16px;
+                padding-bottom: 20px;
+            }
+
+            .form-check {
+                padding-bottom: 15px;
+                font-size: 16px;
+            }
+
+            p {
+                text-align: end;
+            }
+
+        }
+
+        .gh-thaydiachi {
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            p {
+                text-align: end;
+
+                a {
+                    font-size: 16px;
+                    @extend .reset-link;
+                    border-bottom: 1px solid $grey;
+                    color: $grey;
+                }
+
+                a:hover {
+                    color: $brown;
+                    border-bottom: 1px solid $brown;
+                }
+            }
+
+            .collapse {
+                padding-top: 40px;
+
+                input {
+                    margin-bottom: 20px;
+                }
+
+                label {
+                    margin-bottom: 20px;
+                }
+
+                .form-select {
+                    margin-bottom: 20px;
+                    color: $grey;
+                    outline: none;
+
+                    option {
+                        color: $grey;
+                    }
+                }
+
+                .btn-capnhat {
+                    text-align: end;
+                    margin-top: -10px;
+
+                    .btn-main {
+                        border-radius: 10px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .tongcong {
+            padding-top: 50px;
+            border-top: 2px solid $light;
+
+            h4 {
+                font-size: 20px;
+                color: $dark;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 20px;
+                color: $brown;
+                text-align: end;
+            }
+        }
+
+        .gh-bt-thanhtoan {
+            padding-top: 50px;
+
+            button {
+                color: $white;
+                border: none;
+                background-color: $brown;
+                width: 100%;
+                padding: 10px 0px;
+                font-size: 20px;
+            }
+        }
+
+        .gh-bt-thanhtoan:hover {
+            button {
+                background-color: $grey;
+            }
+        }
+
+        .right-footer {
+            padding-top: 50px;
+            text-align: center;
+            padding-bottom: 40px;
+            justify-content: center;
+
+            h5 {
+                font-size: 16px;
+                padding-bottom: 20px;
+                color: $dark;
+                font-weight: bold;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
+    }
+
+    @include respond(lg) {
+        .giohang-right {
+            margin-left: -12px;
+            margin-right: -12px;
+        }
+    }
+
+    @include respond(md) {
+        .giohang-left {
+            .giohang-title {
+                h3 {
+                    font-size: 13px;
+
+                }
+            }
+
+            .gh-dichvu {
+                h4 {
+                    font-size: 13px;
+                    height: 50px;
+                }
+
+                p {
+                    font-size: 10px;
+                    padding: 0px 10px;
+                }
+            }
+        }
+    }
+
+    @include respond(sm) {
+        .giohang-left {
+            .gach-giohang {
+                border-bottom: 1px $light;
+                padding-bottom: 20px;
+            }
+
+            .gach-giohang {
+                border-bottom: 1px solid $light;
+            }
+
+            .giohang-title {
+                display: none;
+            }
+
+            .giohang-border {
+                border: none;
+            }
+
+            .giohang-name {
+                h4 {
+                    font-size: 20px;
+                }
+            }
+
+            .giohang-tl-gia {
+                border-right: none;
+                margin-bottom: 20px;
+
+                .giohang-trongluong {
+                    border-right: none;
+
+                    select {
+                        width: 100%;
+                        padding-left: 20px;
+                        padding-right: 10px;
+                        font-size: 16px;
+
+                        option {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .giohang-gia {
+
+                .giohang-soluong {
+                    border-right: none;
+
+                    button {
+                        width: 100%;
+                    }
+
+                    input {
+                        width: 50px;
+                        outline: none;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .giohang-xoa {
+                text-align: end;
+                justify-content: end;
+
+                button {
+                    margin-bottom: 10px;
+                    margin-right: 25px;
+
+                }
+            }
+
+            .gh-magiamgia {
+                input {
+                    font-size: 13px;
+                }
+
+                .btn-main {
+                    font-size: 13px;
+                }
+            }
+
+            .gh-muatiep {
+                .btn-main {
+                    font-size: 13px;
+                }
+            }
+
+        }
+
+        .giohang-right {
+            .gh-giaohang {
+                h6 {
+                    font-size: 13px;
+                }
+
+                h5 {
+                    font-size: 16px;
+                }
+
+                .form-check {
+                    font-size: 13px;
+                }
+
+                p {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+// TRANG THANH TOÁN
+.thanhtoan {
+    .thanhtoan-left {
+        color: $dark;
+
+        .txt-dangnhap {
+            display: flex;
+            padding-bottom: 20px
+        }
+
+        a {
+            @extend .reset-link;
+            color: $green;
+            padding-right: 10px;
+        }
+
+        p {
+            padding-right: 10px;
+            color: $dark;
+        }
+
+        .thanhtoan-title {
+            margin-bottom: 20px;
+
+            h3 {
+                font-size: 25px;
+                color: $dark;
+                font-family: cormorantmd;
+                text-transform: uppercase;
+            }
+        }
+
+        .thanhtoan-add {
+            border: 1px solid $light;
+            padding: 30px 30px;
+            margin-bottom: 20px;
+
+            .form-select {
+                color: $grey;
+                font-size: 13px;
+                height: 40px;
+            }
+
+            span {
+                color: $pink;
+                padding-left: 5px;
+            }
+        }
+
+        .diachikhac {
+            color: $dark;
+            margin-bottom: 20px;
+            font-family: cormorantmd;
+            display: flex;
+            align-items: center;
+
+            input {
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            label {
+                font-size: 25px;
+            }
+        }
+
+        .ghichu {
+            margin-bottom: 20px;
+
+            h3 {
+                font-size: 25px;
+                font-family: cormorantmd;
+                margin-bottom: 25px;
+                color: $dark;
+            }
+        }
+    }
+
+    .thanhtoan-right {
+        background-color: $lightbrown;
+        padding: 30px 30px;
+        color: $grey;
+
+        h3 {
+            font-size: 25px;
+            font-family: cormorant;
+            padding-bottom: 30px;
+            border-bottom: 1px solid $light;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: $dark;
+        }
+
+        .thanhtoan-sp {
+            padding-top: 10px;
+            padding-bottom: 5px;
+
+            .thanhtoan-image {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    border: 1px solid $lightgray;
+                }
+
+                .image-item {
+                    width: 30px;
+                    height: 30px;
+                    background-color: $green;
+                    border-radius: 15px;
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+
+                    p {
+                        height: 30px;
+                        font-size: 20px;
+                        text-align: center;
+                        justify-content: center;
+                        color: $white;
+                    }
+                }
+            }
+
+            .tt-tensp {
+                padding-left: 20px;
+                padding-top: 10px;
+
+                h4 {
+                    font-size: 16px;
+                    padding-bottom: 15px;
+                    color: $dark;
+                }
+
+                .trongluong {
+                    color: $grey;
+                    padding-bottom: 10px;
+                    font-size: 16px;
+                }
+
+                .gia {
+                    color: $brown;
+                    font-size: 16px;
+                }
+            }
+
+            .tt-giasp {
+                text-align: end;
+                color: $brown;
+                padding-top: 80px;
+                font-size: 16px;
+
+            }
+        }
+
+        .tt-giaohang {
+            margin-top: 20px;
+            border-top: 1px solid $light;
+            padding-top: 20px;
+
+            h5 {
+                font-size: 20px;
+                color: $dark;
+                padding-bottom: 10px;
+            }
+
+            h6 {
+                font-size: 16px;
+                padding-bottom: 10px;
+            }
+
+            .form-check {
+                padding-bottom: 5px;
+                font-size: 16px;
+            }
+
+            p {
+                text-align: end;
+            }
+        }
+
+        .tt-tongcong {
+            padding-top: 35px;
+            border-top: 2px solid $light;
+
+            h4 {
+                font-size: 20px;
+                color: $dark;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 20px;
+                color: $brown;
+                text-align: end;
+            }
+        }
+
+        .line-tt {
+            border-bottom: 2px solid $light;
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-top: 30px;
+        }
+
+        .phuongthuc-tt {
+            padding-top: 25px;
+
+            h5 {
+                font-size: 20px;
+                color: $dark;
+                font-weight: bold;
+                padding-bottom: 15px;
+
+            }
+
+            .form-check {
+                font-size: 16px;
+                padding-bottom: 5px;
+
+            }
+        }
+
+        .btn-main {
+            width: 100%;
+            border-radius: 0px;
+            color: $white;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .right-footer {
+            padding-top: 10px;
+            text-align: center;
+            padding-bottom: 10px;
+            justify-content: center;
+
+            h6 {
+                font-size: 16px;
+                padding-bottom: 10px;
+                color: $dark;
+                font-weight: bold;
+            }
+
+            img {
+                width: 80%;
+            }
+        }
+
+    }
+
+    @include respond(xl) {
+        .thanhtoan-right {
+            .thanhtoan-sp {
+                .thanhtoan-image {
+                    .image-item {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+
+                        p {
+                            height: 20px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                .tt-tensp {
+                    h4 {
+                        padding-bottom: 0px;
+                    }
+
+                    .trongluong {
+                        padding-bottom: 0px;
+                    }
+                }
+
+                .tt-giasp {
+                    text-align: end;
+                    color: $brown;
+                    padding-top: 54px;
+                }
+            }
+        }
+    }
+
+    @include respond(lg) {
+        .thanhtoan-left {
+            .thanhtoan-add {
+                margin-bottom: 20px;
+            }
+
+            .diachikhac {
+                margin-bottom: 15px;
+            }
+
+            .ghichu {
+                padding-top: 5px;
+                margin-bottom: 40px;
+
+                h3 {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .thanhtoan-right {
+            padding: 30px 30px;
+
+            .thanhtoan-sp {
+                .thanhtoan-image {
+                    img {
+                        width: 100%;
+                    }
+
+                    .image-item {
+                        width: 30px;
+                        height: 30px;
+                        background-color: $green;
+                        border-radius: 15px;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+
+                        p {
+                            height: 30px;
+                            font-size: 20px;
+                            text-align: center;
+                            justify-content: center;
+                            color: $white;
+                        }
+                    }
+
+
+                }
+
+                .tt-tensp {
+                    padding-left: 20px;
+
+                    h4 {
+                        font-size: 25px;
+                        padding-bottom: 20px;
+                        padding-top: 15px;
+                    }
+
+                    .trongluong {
+                        padding-bottom: 15px;
+                        font-size: 20px;
+                    }
+
+                    .gia {
+                        color: $brown;
+                        font-size: 20px;
+                    }
+                }
+
+                .tt-giasp {
+                    text-align: end;
+                    color: $brown;
+                    padding-top: 105px;
+                    font-size: 20px;
+                }
+            }
+
+            .line-tt {
+                border-bottom: 2px solid $light;
+                margin-left: -30px;
+                margin-right: -30px;
+                margin-top: 30px;
+            }
+        }
+    }
+
+    @include respond(sm) {
+        .thanhtoan-left {
+            .txt-dangnhap {
+                font-size: 13px;
+            }
+        }
+
+        .thanhtoan-right {
+            .thanhtoan-sp {
+                .thanhtoan-image {
+                    img {
+                        width: 100%;
+                    }
+
+                    .image-item {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+
+                        p {
+                            height: 20px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                .tt-tensp {
+                    h4 {
+                        font-size: 16px;
+                        padding-bottom: 0px;
+                        padding-top: 5px;
+                    }
+
+                    .trongluong {
+                        padding-bottom: 0px;
+                        font-size: 13px;
+                    }
+
+                    .gia {
+                        color: $brown;
+                        font-size: 13px;
+
+                    }
+                }
+
+                .tt-giasp {
+                    text-align: end;
+                    color: $brown;
+                    padding-top: 45px;
+                    font-size: 13px;
+
+                }
+            }
+
+        }
+    }
+
+    @include respond(xs) {
+        .thanhtoan-right {
+            .thanhtoan-sp {
+                .tt-tensp {
+                    h4 {
+                        font-size: 13px;
+                    }
+                }
+
+                .tt-giasp {
+                    padding-top: 40px;
+                }
+            }
+        }
+    }
+}
